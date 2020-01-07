@@ -17,7 +17,7 @@
 ```
 可通过如上代码显示数据集的相关信息。
 可知总共有41440行，51列
-![20200106182755.png](https://raw.githubusercontent.com/zz7236/image/master/vscode/20200106182755.png)
+![20200106182755.png](./image/20200106182755.png)
 
 如上截图可知，pv与uv均有为空的数据。
 * 方法二
@@ -33,7 +33,7 @@
     return alldata_na
 ```
 通过如上函数，可得出相关缺失数据的信息和缺失率，截图如下：
-![20200106183301.png](https://raw.githubusercontent.com/zz7236/image/master/vscode/20200106183301.png)
+![20200106183301.png](./image/20200106183301.png)
 
 ### 特征值分析
 1. 单调特征列分析
@@ -57,7 +57,7 @@ for col in data_train.columns:
         print('单调特征值个数：', cnt)
         print('单调特征值比例：', cnt / data_train.shape[0])
 ```
-![20200106190226.png](https://raw.githubusercontent.com/zz7236/image/master/vscode/20200106190226.png)
+![20200106190226.png](./image/20200106190226.png)
 
 * 注：由于ID特征本身本来就应该是一个单调特征，所以不算在内。
 2. 特征nunique分布
@@ -98,7 +98,8 @@ for feature in data_train.columns:
 print(pd.DataFrame(feature_100))
 ```
 所得结果为：
-![20200106222814.png](https://raw.githubusercontent.com/zz7236/image/master/vscode/20200106222814.png)
+
+![20200106222814.png](./image/20200106222814.png)
 
 ### Label分布
 代码如下:
@@ -112,9 +113,9 @@ sns.distplot(data_train[(data_train['tradeMoney']>50000)&(data_train['tradeMoney
 sns.distplot(data_train[(data_train['tradeMoney']>100000)]['tradeMoney'],ax=axes[1][1])
 plt.show()
 ```
-![20200106224239.png](https://raw.githubusercontent.com/zz7236/image/master/vscode/20200106224239.png)
+![20200106224239.png](./image/20200106224239.png)
 由本图可知：
-绝大多数的租金集中在0-25000之间，
+* 绝大多数的租金集中在0-25000之间，
 * 在0-20000区间，峰值出现在5000，
 * 在20000-50000区间，峰值出现在25000，
 * 在50000-125000区间，峰值出现在55000
@@ -132,6 +133,6 @@ sns.distplot(temp1['tradeMoney'],ax=axes[0][1])
 sns.distplot(temp2['tradeMoney'],ax=axes[0][2])
 plt.show()
 ```
-![20200106231030.png](https://raw.githubusercontent.com/zz7236/image/master/vscode/20200106231030.png)
+![20200106231030.png](./image/20200106231030.png)
 
 当houseFloor不同时，可以观察到tradeMoney的走势相同，可知tradeMoney和houseFloor因素无关。
